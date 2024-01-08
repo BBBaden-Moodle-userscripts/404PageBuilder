@@ -32,7 +32,7 @@ var PageBuilder = (function () {
         var pageContent = document.getElementById('page-content');
         if (pageContent) {
             pageContent.innerHTML = `
-            <div id="region-main custom-content" class="header-maxwidth" aria-label="Inhalt">
+            <div id="region-main" class="header-maxwidth custom-content" aria-label="Inhalt">
                 
             </div>
         `;
@@ -42,21 +42,21 @@ var PageBuilder = (function () {
     }
 
     function addH1(text){
-        var pageContent = document.getElementById('custom-content');
+        var pageContent = document.getElementByClassName('custom-content');
         pageContent.innerHTML += `
         <h1>${text}</h1>
         `
     }
 
     function addH2(text){
-        var pageContent = document.getElementById('custom-content');
+        var pageContent = document.getElementByClassName('custom-content');
         pageContent.innerHTML += `
         <h2>${text}</h2>
         `
     }
         
     function addButton(text){
-        var pageContent = document.getElementById('custom-content');
+        var pageContent = document.getElementByClassName('custom-content');
         pageContent.innerHTML += `
         <button class="btn btn-outline-secondary btn-sm text-nowrap h2">${text}</button>
         `
