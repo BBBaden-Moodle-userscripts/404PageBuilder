@@ -54,13 +54,22 @@ var PageBuilder = (function () {
         <h2>${text}</h2>
         `
     }
-
+        
+    function addButton(text){
+        var pageContent = document.getElementById('custom-content');
+        pageContent.innerHTML += `
+        <button class="btn btn-outline-secondary btn-sm text-nowrap h2">${text}</button>
+        `
+    } 
+    
     function addLine(){
         var pageContent = document.getElementById('custom-content');
         pageContent.innerHTML += `
         <div class="nav-tabs h2" id="line"></div>
         `
     }    
+    
+     
 
     function addExtensionInstallationTable() {
     // Fetch the table from the given URL
