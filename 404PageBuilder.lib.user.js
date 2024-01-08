@@ -50,7 +50,7 @@ var pageBuilder = (function () {
 
     return {
       info: info,
-      prepare: prepare,
+      preparePage: preparePage,
       addH1: addH1,
       addH2: addH2,
       addLine: addLine
