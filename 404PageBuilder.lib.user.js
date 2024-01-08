@@ -98,7 +98,7 @@ var PageBuilder = (function () {
             }
 
             // Append the table to the specified div
-            const tableOfContentDiv = document.getElementById('tableOfContent');
+            var pageContent = document.getElementsByClassName('custom-content')[0];
             if (tableOfContentDiv) {
                 // Add two new columns at the end of each row
                 const headerRow = table.querySelector('thead tr');
@@ -115,7 +115,7 @@ var PageBuilder = (function () {
                 });
 
                 // Append the table to the div
-                tableOfContentDiv.appendChild(table);
+                pageContent.appendChild(table);
             }
         })
         .catch(error => {
