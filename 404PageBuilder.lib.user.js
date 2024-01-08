@@ -63,7 +63,7 @@ var PageBuilder = (function () {
     } 
     
     function addLine(){
-        var pageContent = document.getElementById('custom-content');
+        var pageContent = document.getElementByClassName('custom-content');
         pageContent.innerHTML += `
         <div class="nav-tabs h2" id="line"></div>
         `
