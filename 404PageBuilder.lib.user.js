@@ -43,28 +43,28 @@ var PageBuilder = (function () {
     }
 
     function addH1(text){
-        var pageContent = document.getElementByClassName('custom-content');
+        var pageContent = document.getElementsByClassName('custom-content')[0];
         pageContent.innerHTML += `
         <h1>${text}</h1>
         `
     }
 
     function addH2(text){
-        var pageContent = document.getElementByClassName('custom-content');
+        var pageContent = document.getElementsByClassName('custom-content')[0];
         pageContent.innerHTML += `
         <h2>${text}</h2>
         `
     }
         
     function addButton(text){
-        var pageContent = document.getElementByClassName('custom-content');
+        var pageContent = document.getElementsByClassName('custom-content')[0];
         pageContent.innerHTML += `
         <button class="btn btn-outline-secondary btn-sm text-nowrap h2">${text}</button>
         `
     } 
     
     function addLine(){
-        var pageContent = document.getElementByClassName('custom-content');
+        var pageContent = document.getElementsByClassName('custom-content')[0];
         pageContent.innerHTML += `
         <div class="nav-tabs h2" id="line"></div>
         `
