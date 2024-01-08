@@ -64,15 +64,16 @@ var PageBuilder = (function () {
         
         pageContent.appendChild(button);
         return button;
-        `
     } 
 
     function addTextField(id){
         var pageContent = document.getElementsByClassName('custom-content')[0];
-        pageContent.innerHTML += `
-        <input type="text" id="${id}" />
-        `
-    } 
+        var inputElement = document.createElement('input');
+        inputElement.type = 'text';
+        inputElement.id = id;
+        pageContent.appendChild(inputElement);
+    }
+
     
     function addLine(){
         var pageContent = document.getElementsByClassName('custom-content')[0];
@@ -142,6 +143,7 @@ var PageBuilder = (function () {
       addH1: addH1,
       addH2: addH2,
       addButton: addButton,
+      addTextField: addTextField,
       addLine: addLine,
       addHTML: addHTML,
       addExtensionInstallationTable: addExtensionInstallationTable,
