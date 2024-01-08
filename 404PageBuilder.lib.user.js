@@ -70,6 +70,7 @@ var PageBuilder = (function () {
         var inputElement = document.createElement('input');
         inputElement.type = 'text';
         inputElement.id = id;
+        inputElement.classList.add("form-control mb-1");
         pageContent.appendChild(inputElement);
     }
 
