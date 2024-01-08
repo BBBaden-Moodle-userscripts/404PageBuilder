@@ -1,11 +1,9 @@
-var MyTableUtils = (function () {
+var pageBuilder = (function () {
     function info (){
-        const name = "extract.lib.user.js";
-        const version = "1.0.0";
-        const description = "processes tables from moodle.bbbaden.ch";
-        const author = "black-backdoor";
-        
-        const homepageURL = ""
+        const name = "404PageBuilder.lib.user.js";
+        const version = "0.1";
+        const description = "edits 404 pages from moodle.bbbaden.ch";
+        const author = "PianoNic";
 
         return {
             name: name,
