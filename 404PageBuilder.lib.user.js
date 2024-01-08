@@ -132,6 +132,7 @@ var PageBuilder = (function () {
       addH2: addH2,
       addButton: addButton,
       addLine: addLine,
+      addHTML: addHTML,
       addExtensionInstallationTable: addExtensionInstallationTable,
     };
 })();
