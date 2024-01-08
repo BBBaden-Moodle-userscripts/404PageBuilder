@@ -51,21 +51,16 @@ var PageBuilder = (function () {
     }
         
     function addButton(buttonText, jsCode) {
-        // Check if the div with class 'custom-content' exists
         const customContentDiv = document.querySelector('.custom-content');
 
         if (customContentDiv) {
-            // Create button element
             const button = document.createElement('button');
             button.innerText = buttonText || 'Click me!';
 
-            // Add click event listener to the button
             button.addEventListener('click', function() {
-                // Execute custom JavaScript code passed as a string
-                eval(jsCode); // Be cautious with eval, it can execute arbitrary code
+                eval(jsCode);
             });
 
-            // Append button to custom-content div
             customContentDiv.appendChild(button);
         }
     }
@@ -79,12 +74,19 @@ var PageBuilder = (function () {
     }
 
     
-    function addLine(){
-        var pageContent = document.getElementsByClassName('custom-content')[0];
-        pageContent.innerHTML += `
-        <div class="nav-tabs h2" id="line"></div>
-        `
-    }    
+    function addLine() {
+        var newDiv = document.createElement('div');
+        
+        newDiv.id = 'line';
+        newDiv.className = 'nav-tabs h2';
+    
+        var pageContent = document.querySelector('.custom-content');
+        if (pageContent) {
+            pageContent.appendChild(newDiv);
+        } else {
+            console.error('.custom-content element not found.');
+        }
+    } 
     
     function addHTML(html){
         var pageContent = document.getElementsByClassName('custom-content')[0];
