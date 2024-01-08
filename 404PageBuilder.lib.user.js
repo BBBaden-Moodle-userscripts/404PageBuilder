@@ -127,6 +127,7 @@ var PageBuilder = (function () {
       preparePage: preparePage,
       addH1: addH1,
       addH2: addH2,
+      addButton: addButton,
       addLine: addLine,
       addExtensionInstallationTable: addExtensionInstallationTable,
     };
