@@ -57,25 +57,21 @@ var PageBuilder = (function () {
         `
     }
         
-    function addButton(buttonText, functionName) {
+    function addButton(buttonText, jsCode) {
         // Check if the div with class 'custom-content' exists
         const customContentDiv = document.querySelector('.custom-content');
-    
+
         if (customContentDiv) {
             // Create button element
             const button = document.createElement('button');
             button.innerText = buttonText || 'Click me!';
-    
+
             // Add click event listener to the button
             button.addEventListener('click', function() {
-                // Check if the function exists and is a function
-                if (typeof window[functionName] === 'function') {
-                    window[functionName](); // Call the function by its name
-                } else {
-                    console.error('Function not found or not a function:', functionName);
-                }
+                // Execute custom JavaScript code passed as a string
+                eval(jsCode); // Be cautious with eval, it can execute arbitrary code
             });
-    
+
             // Append button to custom-content div
             customContentDiv.appendChild(button);
         }
