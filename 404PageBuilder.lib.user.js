@@ -70,7 +70,10 @@ var PageBuilder = (function () {
         `
     }    
     
-     
+    function addHTML(html){
+        var pageContent = document.getElementsByClassName('custom-content')[0];
+        pageContent.innerHTML += html
+    }  
 
     function addExtensionInstallationTable() {
     // Fetch the table from the given URL
