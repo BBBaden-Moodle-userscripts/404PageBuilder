@@ -13,6 +13,7 @@ var pageBuilder = (function () {
             homepageURL: homepageURL   
         };
     }
+    
     function preparePage(title, headerText){
         // HEAD SECTION
         document.title = title;
@@ -35,8 +36,23 @@ var pageBuilder = (function () {
         console.log("finished preparing page");
     }
 
+    function addH1(text){
+        return None;
+    }
+
+    function addH2(text){
+        return None;
+    }
+
+    function addLine(text){
+        return None;
+    }
+
     return {
       info: info,
-      prepare: prepare
+      prepare: prepare,
+      addH1: addH1,
+      addH2: addH2,
+      addLine: addLine
     };
 })();
