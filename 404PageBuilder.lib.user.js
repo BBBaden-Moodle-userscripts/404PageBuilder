@@ -34,7 +34,7 @@ var PageBuilder = (function () {
         if (pageContent) {
             pageContent.innerHTML = `
             <div id="region-main" class="header-maxwidth custom-content" aria-label="Inhalt">
-                
+                <div class="nav-tabs h2" id="line"></div>
             </div>
         `;
         }
