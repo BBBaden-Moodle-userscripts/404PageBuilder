@@ -58,8 +58,19 @@ var PageBuilder = (function () {
         
     function addButton(text){
         var pageContent = document.getElementsByClassName('custom-content')[0];
+
+        var button = document.createElement("button");
+        button.innerHTML = text;
+        
+        pageContent.appendChild(button);
+        return button;
+        `
+    } 
+
+    function addTextField(id){
+        var pageContent = document.getElementsByClassName('custom-content')[0];
         pageContent.innerHTML += `
-        <button class="btn btn-outline-secondary btn-sm text-nowrap h2">${text}</button>
+        <input type="text" id="${id}" />
         `
     } 
     
