@@ -56,7 +56,7 @@ var PageBuilder = (function () {
         if (customContentDiv) {
             const button = document.createElement('button');
             button.innerText = buttonText || 'Click me!';
-
+            button.classList.add("btn btn-outline-secondary btn-sm");
             button.addEventListener('click', function() {
                 eval(jsCode);
             });
