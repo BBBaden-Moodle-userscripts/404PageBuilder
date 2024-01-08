@@ -13,7 +13,7 @@ var pageBuilder = (function () {
             homepageURL: homepageURL   
         };
     }
-    function D(title, headerText){
+    function preparePage(title, headerText){
         // HEAD SECTION
         document.title = title;
     
