@@ -1,4 +1,5 @@
 var pageBuilder = (function () {
+    
     function info (){
         const name = "404PageBuilder.lib.user.js";
         const version = "0.1";
@@ -23,31 +24,40 @@ var pageBuilder = (function () {
         if (pageHeader) {
             var errorHeading = pageHeader.querySelector('h1.h2');
             if (errorHeading) {
-                errorHeading.innerHTML = "";
+                errorHeading.innerHTML = headerText;
             }
         }
     
         // PAGE CONTENT SECTION
         var pageContent = document.getElementById('page-content');
         if (pageContent) {
-            pageContent.innerHTML = headerText;
+            pageContent.innerHTML = `
+            <div id="region-main custom-content" class="header-maxwidth" aria-label="Inhalt">
+                
+            </div>
+        `;
         }
 
         console.log("finished preparing page");
     }
 
     function addH1(text){
-        return None;
+        var pageContent = document.getElementById('custom-content');
+        pageContent.innerHTML += `
+        <h1>${text}</h1>
+        `
     }
 
     function addH2(text){
+        var pageContent = document.getElementById('custom-content');
         return None;
     }
 
-    function addLine(text){
+    function addLine(){
+        var pageContent = document.getElementById('custom-content');
         return None;
-    }
-
+    }    
+    
     return {
       info: info,
       preparePage: preparePage,
