@@ -50,12 +50,16 @@ var pageBuilder = (function () {
 
     function addH2(text){
         var pageContent = document.getElementById('custom-content');
-        return None;
+        pageContent.innerHTML += `
+        <h2>${text}</h2>
+        `
     }
 
     function addLine(){
         var pageContent = document.getElementById('custom-content');
-        return None;
+        pageContent.innerHTML += `
+        <div class="nav-tabs h2" id="line"></div>
+        `
     }    
     
     return {
