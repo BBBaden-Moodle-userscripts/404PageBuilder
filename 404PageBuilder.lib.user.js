@@ -1,4 +1,4 @@
-var pageBuilder = (function () {
+var PageBuilder = (function () {
     
     function info (){
         const name = "404PageBuilder.lib.user.js";
