@@ -5,6 +5,7 @@ var PageBuilder = (function () {
         const version = "0.2";
         const description = "edits 404 pages from moodle.bbbaden.ch";
         const author = "PianoNic";
+        const homepageURL = "";
 
         return {
             name: name,
