@@ -13,6 +13,27 @@ var pageBuilder = (function () {
             homepageURL: homepageURL   
         };
     }
+    function preparePage(title, headerText){
+        // HEAD SECTION
+        document.title = title;
+    
+        // HEADER SECTION
+        var pageHeader = document.getElementById('page-header');
+        if (pageHeader) {
+            var errorHeading = pageHeader.querySelector('h1.h2');
+            if (errorHeading) {
+                errorHeading.innerHTML = "";
+            }
+        }
+    
+        // PAGE CONTENT SECTION
+        var pageContent = document.getElementById('page-content');
+        if (pageContent) {
+            pageContent.innerHTML = headerText;
+        }
+
+        console.log("finished preparing page");
+    }
 
     return {
       info: info
