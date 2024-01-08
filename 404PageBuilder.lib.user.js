@@ -56,7 +56,7 @@ var PageBuilder = (function () {
         if (customContentDiv) {
             const button = document.createElement('button');
             button.innerText = buttonText || 'Click me!';
-            button.classList.add("btn btn-outline-secondary btn-sm");
+            button.classList.add("btn", "btn-outline-secondary", "btn-sm");
             button.addEventListener('click', function() {
                 eval(jsCode);
             });
@@ -70,7 +70,7 @@ var PageBuilder = (function () {
         var inputElement = document.createElement('input');
         inputElement.type = 'text';
         inputElement.id = id;
-        inputElement.classList.add("form-control mb-1");
+        inputElement.classList.add("form-control", "mb-1");
         pageContent.appendChild(inputElement);
     }
 
