@@ -2,7 +2,7 @@ var PageBuilder = (function () {
     
     function info (){
         const name = "404PageBuilder.lib.user.js";
-        const version = "0.3";
+        const version = "0.1";
         const description = "edits 404 pages from moodle.bbbaden.ch";
         const author = "PianoNic";
         const homepageURL = "";
@@ -99,24 +99,23 @@ var PageBuilder = (function () {
 
             // Append the table to the specified div
             var pageContent = document.getElementsByClassName('custom-content')[0];
-            if (tableOfContentDiv) {
-                // Add two new columns at the end of each row
-                const headerRow = table.querySelector('thead tr');
-                headerRow.innerHTML += '<th>Installed Status</th>';
+            // Add two new columns at the end of each row
+            const headerRow = table.querySelector('thead tr');
+            headerRow.innerHTML += '<th>Installed Status</th>';
 
-                const bodyRows = table.querySelectorAll('tbody tr');
-                bodyRows.forEach(row => {
-                    // Convert all "Install" links to buttons
-                    const installLink = row.querySelector('td:last-child a');
-                    installLink.outerHTML = '<button class="btn btn-outline-secondary btn-sm text-nowrap h2 install-button">' + "<a href='" + installLink + "'>" +"Install</a>" + '</button>';
+            const bodyRows = table.querySelectorAll('tbody tr');
+            bodyRows.forEach(row => {
+                // Convert all "Install" links to buttons
+                const installLink = row.querySelector('td:last-child a');
+                installLink.outerHTML = '<button class="btn btn-outline-secondary btn-sm text-nowrap h2 install-button">' + "<a href='" + installLink + "'>" +"Install</a>" + '</button>';
 
-                    // Add "Installed Status" column with default value "Not Installed"
-                    row.innerHTML += '<td>Not Installed</td>';
-                });
+                // Add "Installed Status" column with default value "Not Installed"
+                row.innerHTML += '<td>Not Installed</td>';
+            });
 
-                // Append the table to the div
-                pageContent.appendChild(table);
-            }
+            // Append the table to the div
+            pageContent.appendChild(table);
+        
         })
         .catch(error => {
             console.error('Error fetching or appending table:', error);
