@@ -13,7 +13,7 @@ var pageBuilder = (function () {
             homepageURL: homepageURL   
         };
     }
-    function preparePage(title, headerText){
+    function D(title, headerText){
         // HEAD SECTION
         document.title = title;
     
@@ -36,6 +36,7 @@ var pageBuilder = (function () {
     }
 
     return {
-      info: info
+      info: info,
+      prepare: prepare
     };
 })();
