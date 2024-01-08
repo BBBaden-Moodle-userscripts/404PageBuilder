@@ -36,7 +36,8 @@ var PageBuilder = (function () {
             <div id="region-main" class="header-maxwidth custom-content" aria-label="Inhalt">
                 <div class="nav-tabs h2" id="line"></div>
             </div>
-        `;
+            `
+
         }
 
         console.log("finished preparing page");
