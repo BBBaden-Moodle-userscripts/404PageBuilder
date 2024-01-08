@@ -43,18 +43,11 @@ var PageBuilder = (function () {
         console.log("finished preparing page");
     }
 
-    function addH1(text){
+    function addElement(tag, text) {
         var pageContent = document.getElementsByClassName('custom-content')[0];
-        pageContent.innerHTML += `
-        <h1>${text}</h1>
-        `
-    }
-
-    function addH2(text){
-        var pageContent = document.getElementsByClassName('custom-content')[0];
-        pageContent.innerHTML += `
-        <h2>${text}</h2>
-        `
+        var element = document.createElement(tag);
+        element.textContent = text;
+        pageContent.appendChild(element);
     }
         
     function addButton(buttonText, jsCode) {
@@ -151,8 +144,7 @@ var PageBuilder = (function () {
     return {
       info: info,
       preparePage: preparePage,
-      addH1: addH1,
-      addH2: addH2,
+      addElement: addElement,
       addButton: addButton,
       addTextField: addTextField,
       addLine: addLine,
