@@ -57,12 +57,16 @@ var PageBuilder = (function () {
         `
     }
         
-    function addButton(text){
+    function addButton(text, jsCode) {
         var pageContent = document.getElementsByClassName('custom-content')[0];
-
+    
         var button = document.createElement("button");
         button.innerHTML = text;
-        
+    
+        button.addEventListener('click', function() {
+            eval(jsCode);
+        });
+    
         pageContent.appendChild(button);
         return button;
     } 
