@@ -65,12 +65,15 @@ var PageBuilder = (function () {
         }
     }
 
-    function addTextField(id){
+    function addTextField(id, className = None){
         var pageContent = document.getElementsByClassName('custom-content')[0];
         var inputElement = document.createElement('input');
         inputElement.type = 'text';
-        inputElement.id = id;
+        inputElement.id = id;        
         inputElement.classList.add("form-control", "mb-1");
+        if(className){
+            inputElement.classList.add(className);
+        }
         pageContent.appendChild(inputElement);
     }
 
