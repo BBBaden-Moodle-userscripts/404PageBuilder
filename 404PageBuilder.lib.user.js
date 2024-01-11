@@ -43,20 +43,29 @@ var PageBuilder = (function () {
         console.log("finished preparing page");
     }
 
-    function addElement(tag, text) {
+    function addElement(tag, text=None, className = None) {
         var pageContent = document.getElementsByClassName('custom-content')[0];
         var element = document.createElement(tag);
-        element.textContent = text;
+        if(text)
+            element.textContent = text;
+        }
+        if(className){
+            element.classList.add(className);
+        }
         pageContent.appendChild(element);
     }
         
-    function addButton(buttonText, jsCode) {
+    function addButton(buttonText, jsCode, className = None) {
         const customContentDiv = document.querySelector('.custom-content');
 
         if (customContentDiv) {
             const button = document.createElement('button');
             button.innerText = buttonText || 'Click me!';
             button.classList.add("btn", "btn-outline-secondary", "btn-sm");
+            if(className){
+                button.classList.add(className);
+            }
+            
             button.addEventListener('click', function() {
                 eval(jsCode);
             });
