@@ -43,17 +43,18 @@ var PageBuilder = (function () {
         console.log("finished preparing page");
     }
 
-    function addElement(tag, text=None, className = None) {
+    function addElement(tag, text = null, className = null) {
         var pageContent = document.getElementsByClassName('custom-content')[0];
         var element = document.createElement(tag);
-        if(text)
+        if (text) {
             element.textContent = text;
         }
-        if(className){
+        if (className) {
             element.classList.add(className);
         }
         pageContent.appendChild(element);
     }
+
         
     function addButton(buttonText, jsCode, className = None) {
         const customContentDiv = document.querySelector('.custom-content');
