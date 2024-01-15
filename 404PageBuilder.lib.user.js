@@ -56,7 +56,7 @@ var PageBuilder = (function () {
     }
 
         
-    function addButton(buttonText, jsCode, className = None) {
+    function addButton(buttonText, jsCode, className = null) {
         const customContentDiv = document.querySelector('.custom-content');
 
         if (customContentDiv) {
@@ -75,7 +75,7 @@ var PageBuilder = (function () {
         }
     }
 
-    function addTextField(id, className = None){
+    function addTextField(id, className = null){
         var pageContent = document.getElementsByClassName('custom-content')[0];
         var inputElement = document.createElement('input');
         inputElement.type = 'text';
