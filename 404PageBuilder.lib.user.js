@@ -142,7 +142,7 @@ var PageBuilder = (function () {
             bodyRows.forEach(row => {
                 // Convert all "Install" links to buttons
                 const installLink = row.querySelector('td:last-child a');
-                installLink.outerHTML = '<button class="btn btn-outline-secondary btn-sm text-nowrap h2 install-button"><a href="' + installLink.href + '">Install</a></button>';
+                installLink.outerHTML = '<a href="' + installLink.href + '"><button class="btn btn-outline-secondary btn-sm text-nowrap h2 install-button">Install</button></a>';
 
                 // Add "Installed Status" column with default value "Not Installed"
                 row.innerHTML += '<td>Not Installed</td>';
