@@ -2,7 +2,7 @@ var PageBuilder = (function () {
     
     function info (){
         const name = "404PageBuilder.lib.user.js";
-        const version = "0.3";
+        const version = "0.3.1";
         const description = "edits 404 pages from moodle.bbbaden.ch";
         const author = "PianoNic";
         const homepageURL = "";
@@ -116,7 +116,7 @@ var PageBuilder = (function () {
             var bodyRows = table.querySelectorAll('tbody tr');
             
             bodyRows.forEach(row => {
-                var installedScriptName = row.querySelector('td:nth-last-child(2)').textContent;
+                var installedScriptName = row.querySelector('td:nth-child(2)').textContent.trim();
                 
                 if (installedScriptName === scriptName) {
                     // Update the status cell with "Installed"
