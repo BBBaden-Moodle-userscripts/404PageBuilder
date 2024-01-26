@@ -107,6 +107,26 @@ var PageBuilder = (function () {
         pageContent.innerHTML += html
     }  
 
+    function updateInstallationStatus(scriptName, scriptVersion) {
+        // Find the table row with the matching script name
+        var pageContent = document.getElementsByClassName('custom-content')[0];
+        var table = pageContent.querySelector('table');
+        
+        if (table) {
+            var bodyRows = table.querySelectorAll('tbody tr');
+            
+            bodyRows.forEach(row => {
+                var installedScriptName = row.querySelector('td:nth-last-child(2)').textContent;
+                
+                if (installedScriptName === scriptName) {
+                    // Update the status cell with "Installed"
+                    row.querySelector('td:last-child').textContent = 'Installed';
+                    return; // Break the loop since the script is found
+                }
+            });
+        }
+    }
+    
     function addExtensionInstallationTable() {
     // Fetch the table from the given URL
     fetch('https://raw.githubusercontent.com/BBBaden-Moodle-userscripts/BBBaden-Moodle/main/AllProjects.md')
@@ -166,5 +186,6 @@ var PageBuilder = (function () {
       addLine: addLine,
       addHTML: addHTML,
       addExtensionInstallationTable: addExtensionInstallationTable,
+      updateInstallationStatus: updateInstallationStatus,
     };
 })();
