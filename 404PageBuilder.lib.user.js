@@ -128,54 +128,43 @@ var PageBuilder = (function () {
     }
     
     function addExtensionInstallationTable() {
-    // Fetch the table from the given URL
-    fetch('https://raw.githubusercontent.com/BBBaden-Moodle-userscripts/BBBaden-Moodle/main/AllProjects.md')
-        .then(response => response.text())
+    // Fetch repo data from GitHub API
+    fetch('https://api.github.com/users/BBBaden-Moodle-userscripts/repos')
+        .then(response => response.json())
         .then(data => {
-            // Parse the markdown content into HTML
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(data, 'text/html');
-
-            // Extract the table
-            const table = doc.querySelector('table');
-
-            // Set styles to make the table use the full width
+            // Create a table element
+            const table = document.createElement('table');
             table.style.width = '100%';
             table.style.borderCollapse = 'collapse';
 
-            // Add space between each line (transparent border)
-            const tbody = table.querySelector('tbody');
-            if (tbody) {
-                const tableRows = tbody.querySelectorAll('tr');
-                tableRows.forEach(row => {
-                    row.style.borderBottom = '4px solid transparent';
-                });
-            }
+            // Create table header
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            headerRow.innerHTML = '<th>Repository Name</th><th>Language</th><th>Installed Status</th>';
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Create table body
+            const tbody = document.createElement('tbody');
+            data.forEach(repo => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><a href="${repo.html_url}" target="_blank">${repo.name}</a></td>
+                    <td>${repo.language || 'N/A'}</td>
+                    <td>Not Installed</td>`;
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
 
             // Append the table to the specified div
-            var pageContent = document.getElementsByClassName('custom-content')[0];
-            // Add two new columns at the end of each row
-            const headerRow = table.querySelector('thead tr');
-            headerRow.innerHTML += '<th>Installed Status</th>';
-
-            const bodyRows = table.querySelectorAll('tbody tr');
-            bodyRows.forEach(row => {
-                // Convert all "Install" links to buttons
-                const installLink = row.querySelector('td:last-child a');
-                installLink.outerHTML = '<a href="' + installLink.href + '"><button class="btn btn-outline-secondary btn-sm text-nowrap h2 install-button">Install</button></a>';
-
-                // Add "Installed Status" column with default value "Not Installed"
-                row.innerHTML += '<td>Not Installed</td>';
-            });
-
-            // Append the table to the div
+            const pageContent = document.getElementsByClassName('custom-content')[0];
             pageContent.appendChild(table);
-        
         })
         .catch(error => {
             console.error('Error fetching or appending table:', error);
         });
 }
+
     
     return {
       info: info,
