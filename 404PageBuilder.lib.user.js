@@ -126,44 +126,6 @@ var PageBuilder = (function () {
             });
         }
     }
-    
-    function addExtensionInstallationTable() {
-    // Fetch repo data from GitHub API
-    fetch('https://api.github.com/users/BBBaden-Moodle-userscripts/repos')
-        .then(response => response.json())
-        .then(data => {
-            // Create a table element
-            const table = document.createElement('table');
-            table.style.width = '100%';
-            table.style.borderCollapse = 'collapse';
-
-            // Create table header
-            const thead = document.createElement('thead');
-            const headerRow = document.createElement('tr');
-            headerRow.innerHTML = '<th>Repository Name</th><th>Language</th><th>Installed Status</th>';
-            thead.appendChild(headerRow);
-            table.appendChild(thead);
-
-            // Create table body
-            const tbody = document.createElement('tbody');
-            data.forEach(repo => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><a href="${repo.html_url}" target="_blank">${repo.name}</a></td>
-                    <td>${repo.language || 'N/A'}</td>
-                    <td>Not Installed</td>`;
-                tbody.appendChild(row);
-            });
-            table.appendChild(tbody);
-
-            // Append the table to the specified div
-            const pageContent = document.getElementsByClassName('custom-content')[0];
-            pageContent.appendChild(table);
-        })
-        .catch(error => {
-            console.error('Error fetching or appending table:', error);
-        });
-}
 
     
     return {
@@ -174,7 +136,6 @@ var PageBuilder = (function () {
       addTextField: addTextField,
       addLine: addLine,
       addHTML: addHTML,
-      addExtensionInstallationTable: addExtensionInstallationTable,
       updateInstallationStatus: updateInstallationStatus,
     };
 })();
