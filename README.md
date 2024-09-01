@@ -36,7 +36,7 @@ https://github.com/BBBaden-Moodle-userscripts/PageBuilderLib/raw/main/PageBuilde
   - **Clear Content**: Clears the content inside the `page-content` element.
 - **Usage**: 
   ```javascript
-  PageBuilder.prepare404Page('Page Not Found', 'Oops! We couldn\'t find that page.');
+  PageBuilder.prepare404Page('Settings', 'Settings Page');
   ```
 
 ## 📄 License
