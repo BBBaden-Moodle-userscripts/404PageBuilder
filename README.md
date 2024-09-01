@@ -1,6 +1,6 @@
 # 🎨 PageBuilder Library
 
-The **PageBuilder** library is designed to assist with customizing web pages, with a primary focus on enhancing 404 error pages.
+The **PageBuilder** library is designed to assist with customizing the web pages, with a primary focus on enhancing 404 error pages.
 
 ## 🚀 Installation
 
