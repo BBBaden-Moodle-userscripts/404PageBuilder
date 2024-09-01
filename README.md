@@ -41,4 +41,4 @@ https://github.com/BBBaden-Moodle-userscripts/PageBuilderLib/raw/main/PageBuilde
 
 ## 📄 License
 
-This library is [licensed](LICENSE) under the MIT License.
+This library is licensed under the [MIT](LICENSE) License.
