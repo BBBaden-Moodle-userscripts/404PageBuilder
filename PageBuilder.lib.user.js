@@ -132,65 +132,65 @@ var PageBuilder = (function () {
     //     }
     // }
     
-    // function addExtensionInstallationTable() {
-    // // Fetch the table from the given URL
-    // fetch('https://raw.githubusercontent.com/BBBaden-Moodle-userscripts/BBBaden-Moodle/main/AllProjects.md')
-    //     .then(response => response.text())
-    //     .then(data => {
-    //         // Parse the markdown content into HTML
-    //         const parser = new DOMParser();
-    //         const doc = parser.parseFromString(data, 'text/html');
+    function addExtensionInstallationTable() {
+    // Fetch the table from the given URL
+    fetch('https://raw.githubusercontent.com/BBBaden-Moodle-userscripts/BBBaden-Moodle/main/AllProjects.md')
+        .then(response => response.text())
+        .then(data => {
+            // Parse the markdown content into HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
 
-    //         // Extract the table
-    //         const table = doc.querySelector('table');
+            // Extract the table
+            const table = doc.querySelector('table');
 
-    //         // Set styles to make the table use the full width
-    //         table.style.width = '100%';
-    //         table.style.borderCollapse = 'collapse';
+            // Set styles to make the table use the full width
+            table.style.width = '100%';
+            table.style.borderCollapse = 'collapse';
 
-    //         // Add space between each line (transparent border)
-    //         const tbody = table.querySelector('tbody');
-    //         if (tbody) {
-    //             const tableRows = tbody.querySelectorAll('tr');
-    //             tableRows.forEach(row => {
-    //                 row.style.borderBottom = '4px solid transparent';
-    //             });
-    //         }
+            // Add space between each line (transparent border)
+            const tbody = table.querySelector('tbody');
+            if (tbody) {
+                const tableRows = tbody.querySelectorAll('tr');
+                tableRows.forEach(row => {
+                    row.style.borderBottom = '4px solid transparent';
+                });
+            }
 
-    //         // Append the table to the specified div
-    //         var pageContent = document.getElementsByClassName('custom-content')[0];
-    //         // Add two new columns at the end of each row
-    //         const headerRow = table.querySelector('thead tr');
-    //         headerRow.innerHTML += '<th>Installed Status</th>';
+            // Append the table to the specified div
+            var pageContent = document.getElementsByClassName('custom-content')[0];
+            // Add two new columns at the end of each row
+            const headerRow = table.querySelector('thead tr');
+            headerRow.innerHTML += '<th>Installed Status</th>';
 
-    //         const bodyRows = table.querySelectorAll('tbody tr');
-    //         bodyRows.forEach(row => {
-    //             // Convert all "Install" links to buttons
-    //             const installLink = row.querySelector('td:last-child a');
-    //             installLink.outerHTML = '<a href="' + installLink.href + '"><button class="btn btn-outline-secondary btn-sm text-nowrap h2 install-button">Install</button></a>';
+            const bodyRows = table.querySelectorAll('tbody tr');
+            bodyRows.forEach(row => {
+                // Convert all "Install" links to buttons
+                const installLink = row.querySelector('td:last-child a');
+                installLink.outerHTML = '<a href="' + installLink.href + '"><button class="btn btn-outline-secondary btn-sm text-nowrap h2 install-button">Install</button></a>';
 
-    //             // Add "Installed Status" column with default value "Not Installed"
-    //             row.innerHTML += '<td>Not Installed</td>';
-    //         });
+                // Add "Installed Status" column with default value "Not Installed"
+                row.innerHTML += '<td>Not Installed</td>';
+            });
 
-    //         // Append the table to the div
-    //         pageContent.appendChild(table);
+            // Append the table to the div
+            pageContent.appendChild(table);
         
-    //     })
-    //     .catch(error => {
-    //         console.error('Error fetching or appending table:', error);
-    //     });
-    // }
+        })
+        .catch(error => {
+            console.error('Error fetching or appending table:', error);
+        });
+    }
     
     return {
-      info: info,
-      prepare404Page: prepare404Page,
+        info: info,
+        prepare404Page: prepare404Page,
     //   addElement: addElement,
     //   addButton: addButton,
     //   addTextField: addTextField,
     //   addLine: addLine,
     //   addHTML: addHTML,
-    //   addExtensionInstallationTable: addExtensionInstallationTable,
+        addExtensionInstallationTable: addExtensionInstallationTable,
     //   updateInstallationStatus: updateInstallationStatus,
     };
 })();
